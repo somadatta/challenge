@@ -1,107 +1,98 @@
-ul.sdt_menu{
-	margin:0;
-	padding:0;
-	list-style: none;
-	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
-	font-size:14px;
-	width:1020px;
+body, nav, ul, li, a  {margin: 0; padding: 0;}
+body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+a {text-decoration: none;}
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 10px auto;
 }
-ul.sdt_menu a{
-	text-decoration:none;
-	outline:none;
+.toggleMenu {
+    display:  none;
+    background: #666;
+    padding: 10px 15px;
+    color: #fff;
 }
-ul.sdt_menu li{
-	float:left;
-	width:170px;
-	height:85px;
-	position:relative;
-	cursor:pointer;
+.nav {
+    list-style: none;
+     *zoom: 1;
+     background:#175e4c;
 }
-ul.sdt_menu li > a{
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:170px;
-	height:85px;
-	z-index:12;
-	background:transparent url(../images/overlay.png) no-repeat bottom right;
-	-moz-box-shadow:0px 0px 2px #000 inset;
-	-webkit-box-shadow:0px 0px 2px #000 inset;
-	box-shadow:0px 0px 2px #000 inset;
+.nav:before,
+.nav:after {
+    content: " "; 
+    display: table; 
 }
-ul.sdt_menu li a img{
-	border:none;
-	position:absolute;
-	width:0px;
-	height:0px;
-	bottom:0px;
-	left:85px;
-	z-index:100;
-	-moz-box-shadow:0px 0px 4px #000;
-	-webkit-box-shadow:0px 0px 4px #000;
-	box-shadow:0px 0px 4px #000;
+.nav:after {
+    clear: both;
 }
-ul.sdt_menu li span.sdt_wrap{
-	position:absolute;
-	top:25px;
-	left:0px;
-	width:170px;
-	height:60px;
-	z-index:15;
+.nav ul {
+    list-style: none;
+    width: 9em;
 }
-ul.sdt_menu li span.sdt_active{
-	position:absolute;
-	background:#111;
-	top:85px;
-	width:170px;
-	height:0px;
-	left:0px;
-	z-index:14;
-	-moz-box-shadow:0px 0px 4px #000 inset;
-	-webkit-box-shadow:0px 0px 4px #000 inset;
-	box-shadow:0px 0px 4px #000 inset;
+.nav a {
+    padding: 10px 15px;
+    color:#fff;
 }
-ul.sdt_menu li span span.sdt_link,
-ul.sdt_menu li span span.sdt_descr,
-ul.sdt_menu li div.sdt_box a{
-	margin-left:15px;
-	text-transform:uppercase;
-	text-shadow:1px 1px 1px #000;
+.nav li {
+    position: relative;
 }
-ul.sdt_menu li span span.sdt_link{
-	color:#fff;
-	font-size:24px;
-	float:left;
-	clear:both;
+.nav > li {
+    float: left;
+    border-top: 1px solid #104336;
 }
-ul.sdt_menu li span span.sdt_descr{
-	color:#0B75AF;
-	float:left;
-	clear:both;
-	width:155px; /*For dumbass IE7*/
-	font-size:10px;
-	letter-spacing:1px;
+.nav > li > .parent {
+    background-image: url("images/downArrow.png");
+    background-repeat: no-repeat;
+    background-position: right;
 }
-ul.sdt_menu li div.sdt_box{
-	display:block;
-	position:absolute;
-	width:170px;
-	overflow:hidden;
-	height:170px;
-	top:85px;
-	left:0px;
-	display:none;
-	background:#000;
+.nav > li > a {
+    display: block;
 }
-ul.sdt_menu li div.sdt_box a{
-	float:left;
-	clear:both;
-	line-height:30px;
-	color:#0B75AF;
+.nav li  ul {
+    position: absolute;
+    left: -9999px;
 }
-ul.sdt_menu li div.sdt_box a:first-child{
-	margin-top:15px;
+.nav > li.hover > ul {
+    left: 0;
 }
-ul.sdt_menu li div.sdt_box a:hover{
-	color:#fff;
+.nav li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+.nav li li a {
+    display: block;
+    background: #1d7a62;
+    position: relative;
+    z-index:100;
+    border-top: 1px solid #175e4c;
+}
+.nav li li li a {
+    background:#249578;
+    z-index:200;
+    border-top: 1px solid #1d7a62;
+}
+
+@media screen and (max-width: 768px) {
+    .active {
+        display: block;
+    }
+    .nav > li {
+        float: none;
+    }
+    .nav > li > .parent {
+        background-position: 95% 50%;
+    }
+    .nav li li .parent {
+        background-image: url("images/downArrow.png");
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+   .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+
 }
